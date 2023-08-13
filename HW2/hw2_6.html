@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LineLoop Octagon</title>
+    <script id="vertexShader" type="x-shader/x-vertex">
+      attribute vec3 aPosition;
+      void main() {
+        gl_Position = vec4(aPosition, 1.0);
+      }
+    </script>
+    <script id="fragmentShader" type="x-shader/x-fragment">
+      precision mediump float;
+      void main() {
+        gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0); // Red color
+      }
+    </script>
+  </head>
+  <body>
+    <script src="hw2_6.js" defer></script>
+    <canvas id="myCanvas" width="400" height="400"></canvas>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<html>
+<head>
+    <script id="vertex-shader" type="x-shader/x-vertex">
+        #version 300 es
+        in vec4 aPosition;
+        
+        void main() {
+            gl_Position = aPosition;
+        }
+    </script>
+    
+    <script id="fragment-shader" type="x-shader/x-fragment">
+        #version 300 es
+        precision mediump float;
+        out vec4 fColor;
+        
+        void main() {
+            vec3 color;
+            
+            // Calculate the color based on the vertex position
+            if (gl_FrontFacing) {
+                color = vec3(gl_FragCoord.x / 512.0, 0.0, gl_FragCoord.y / 512.0);
+            } else {
+                color = vec3(gl_FragCoord.y / 512.0, gl_FragCoord.x / 512.0, 0.0);
+            }
+            
+            fColor = vec4(color, 1.0);
+        }
+    </script>
+    
+    <script type="text/javascript" src="initShaders.js"></script>
+    <script type="text/javascript" src="MV.js"></script>
+    <script type="text/javascript" src="hw3_5B.js"></script>
+</head>
+
+<body>
+    <canvas id="gl-canvas" width="512" height="512">
+        Oops ... your browser doesn't support the HTML5 canvas element
+    </canvas>
+</body>
+</html>
